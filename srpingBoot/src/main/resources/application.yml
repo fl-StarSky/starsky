@@ -1,0 +1,10 @@
+server: 
+    #将tomcat默认端口 8080 设置成 8085
+    port: 8085 
+    #将默认访问路径从“/”改为“/star”
+    servlet:
+      context-path: /star
+
+#logging: 
+ # config: classpath:logback-boot.xml
+
