@@ -75,10 +75,10 @@
             enableUpdateByExample表示是UpdateByExample。此语句将更新表中与示例匹配的行。如果为true，则还将生成示例“selective”语句的更新。“selective”语句仅更新record参数中的相应值为非null的列。默认true。
             selectByPrimaryKeyQueryId此值将以此形式添加到select by primary key语句的选择列表中：“'<value>'作为QUERYID”。这对于在运行时识别DBA跟踪工具中的查询非常有用。如果使用这样的值，则应为MBG生成的每个不同查询指定唯一ID。
         -->
-        <table tableName="items"
-            domainObjectName="Items" enableCountByExample="false" enableUpdateByExample="false"
+        <table tableName="orders"
+            domainObjectName="Orders" enableCountByExample="false" enableUpdateByExample="false"
             enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"
-            mapperName="ItemsMapping">
+            mapperName="OrdersMapper">
         </table>
     </context>
 </generatorConfiguration>

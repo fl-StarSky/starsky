@@ -75,6 +75,14 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.11</version>
         </dependency>
+       
+       <!--  加入jackson-dataformat-xml依赖，Spring Boot就会自动引入MappingJackson2XmlHttpMessageConverter（对Xml格式数据的消息转换实现）-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+        </dependency>
+        
+        
     </dependencies>
     <build>
         <plugins>
