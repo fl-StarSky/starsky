@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:beans="http://www.springframework.org/schema/beans" xmlns:p="http://www.springframework.org/schema/p"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+              http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+    
+    <!-- 配置不过滤的资源（静态资源及登录相关），是忽略拦截某些资源的意思，主要针对静态资源 -->
+<!--     <http pattern="/images/**" security="none"/>
+    <http pattern="/css/**" security="none"/> -->
+    <http pattern="/login.jsp" security="none"/>
+    
+    <!-- auto-config = true则使用from-login.如果不使用该属性则默认为http-basic(没有session). -->  
+    <http auto-config="true">
+    
+       <!--  intercept-url用来判断用户需要具有何种权限(access)才能访问对应的url资源(pattern) -->
+       <!--  表示访问welcome.jsp时，需要ROLE_ADMIN权限 -->
+        <intercept-url pattern="/jsp/allLogin.jsp" access="ROLE_USER"/>
+       <!--  表示访问/WEB-INF/page下的任何资源时，需要ROLE_USER权限 -->
+        <intercept-url pattern="/jsp/partLogin.jsp" access="ROLE_ADMIN"/>
+        
+    </http>
+    
+    <authentication-manager>
+        <authentication-provider>
+            <user-service>
+                <user name="admin" password="admin" authorities="ROLE_USER,ROLE_ADMIN"/>
+                <user name="fuli" password="123456" authorities="ROLE_ADMIN"/>
+            </user-service>
+        </authentication-provider>
+    </authentication-manager> 
+ 
+</beans:beans>
